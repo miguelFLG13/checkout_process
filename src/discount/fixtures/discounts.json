@@ -1,0 +1,20 @@
+[
+  {
+    "model": "discount.Discount",
+    "pk": 1,
+    "fields": {
+      "created": "2018-12-09T05:04:09Z",
+      "updated": "2018-12-09T05:04:09Z",
+      "name": "2-for-1"
+    }
+  },
+  {
+    "model": "discount.Discount",
+    "pk": 2,
+    "fields": {
+      "created": "2018-12-09T05:04:09Z",
+      "updated": "2018-12-09T05:04:09Z",
+      "name": "3 or more"
+    }
+  }
+]
