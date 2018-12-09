@@ -1,0 +1,25 @@
+version: '2' 
+services:
+
+  nginx:
+    image: nginx:1.12.2
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/src
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+
+  web:
+    build: .
+    restart: always
+    container_name: web
+    volumes:
+      - ./src:/src
+    expose:
+      - "80"
+    environment:
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
+      - SECRET_KEY=${SECRET_KEY}
