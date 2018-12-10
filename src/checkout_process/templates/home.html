@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CheckOut Process</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      $.get($("#products-url").val()).done(function(data){
+        for(i=0; i < data.length; i++){
+          $("#products-title").after("<tr><td>" + data[i]["name"] + "</td><td>" + data[i]["price"] + "€</td><td><input id='" + data[i]["code"] + "' type='number' maxlength='99' size='2' max='99' min='0' value='0' style='width:35px'></td></tr>");
+        }
+      });
+
+      $("#checkout-button").click(function(){
+          payload = {}
+          $(':input[type="number"]').each(function(){
+            payload[this.id] = this.value;
+          });
+
+          $.post($("#checkout-url").val(), payload).done(function(data){
+            $("#total-price").html("Total: " + data['total'] + "€");
+            alert("CheckOut Done!");
+          }).fail(function(){
+            $("#total-price").html("");
+            alert("Error!");
+          });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <table id="products-list" width="500">
+    <tr id="products-title">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+  </table>
+  <br>
+  <button id="checkout-button">CheckOut</button>
+  <br>
+  <div id="total-price"></div>
+  <input id="products-url" type="hidden" value="{% url 'products_url' %}">
+  <input id="checkout-url" type="hidden" value="{% url 'create_checkout_url' %}">
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "model": "product.Product",
+    "pk": 1,
+    "fields": {
+      "created": "2018-12-09T05:04:09Z",
+      "updated": "2018-12-09T05:04:09Z",
+      "code": "VOUCHER",
+      "name": "Cabify Voucher",
+      "price": 5.00,
+      "discount": 1
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 2,
+    "fields": {
+      "created": "2018-12-09T05:04:09Z",
+      "updated": "2018-12-09T05:04:09Z",
+      "code": "TSHIRT",
+      "name": "Cabify T-Shirt",
+      "price": 20.00,
+      "discount": 2
+    }
+  },
+  {
+    "model": "product.Product",
+    "pk": 3,
+    "fields": {
+      "created": "2018-12-09T05:04:09Z",
+      "updated": "2018-12-09T05:04:09Z",
+      "code": "MUG",
+      "name": "Cafify Coffee Mug",
+      "price": 7.50,
+      "discount": null
+    }
+  }
+]
