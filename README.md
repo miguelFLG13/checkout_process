@@ -33,3 +33,5 @@ Finally, remember that you can use this directly from the python terminal and do
 4) Execute `make build`
 
 5) Execute `make up`
+
+6) Access with http://0.0.0.0:80
